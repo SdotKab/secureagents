@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import Logo from '/logo.svg'; // replace with actual SVG or image path
-import { useAuth } from '@/context/AuthContext';
+// import Logo from '/logo.svg';
+import { useAuth } from 'src/context/AuthProvide';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function Navbar() {
     <header className="bg-white shadow-md">
       <nav className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href={user ? '/dashboard' : '/welcome'} className="flex items-center space-x-2">
-          <img src={Logo} alt="Logo" className="h-8 w-8" />
+          <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
           <span className="text-xl font-bold text-blue-600">SecureAgents</span>
         </Link>
 
