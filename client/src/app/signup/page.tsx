@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import Link from 'next/link';
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -48,6 +49,7 @@ export default function SignUpPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
+
       <h1 className="text-3xl font-bold mb-6 text-center">Create Your Company Account</h1>
       {error && <p className="text-red-600 mb-4">{error}</p>}
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
@@ -82,6 +84,11 @@ export default function SignUpPage() {
         >
           Sign Up
         </button>
+        <hr />
+          <p className='text-center'>Already have an account, just 
+            <Link href="/signin" className='text-blue-500 text-semibold'> sign in</Link>
+            .
+          </p>
       </form>
     </div>
   );

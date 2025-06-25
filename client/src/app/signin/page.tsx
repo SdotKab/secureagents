@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import Link from 'next/link';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
@@ -27,7 +28,8 @@ export default function SignInPage() {
 
   return (
     <div className="max-w-md mx-auto py-12">
-      <h1 className="text-3xl font-bold mb-6 text-center">Sign In</h1>
+      
+      <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
       {error && <p className="text-red-600 mb-4">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -48,6 +50,11 @@ export default function SignInPage() {
         >
           Sign In
         </button>
+                <hr />
+          <p className='text-center'>Don't have an account? Just 
+            <Link href="/signup" className='text-blue-500 text-semibold'> register</Link>
+            .
+          </p>
       </form>
     </div>
   );

@@ -39,10 +39,10 @@ export default function Navbar() {
           ) : (
             <>
               <li>
-                <Link href="/company-profile">Company Profile</Link>
+                <Link href="/companyProfile">Company Profile</Link>
               </li>
               <li>
-                <Link href="/account-settings">Account Settings</Link>
+                <Link href="/accountSettings">Account Settings</Link>
               </li>
               <li>
                 <button onClick={signOut} className="text-red-600 font-semibold">Logout</button>

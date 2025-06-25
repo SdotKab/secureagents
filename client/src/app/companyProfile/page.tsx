@@ -21,6 +21,7 @@ const CompanyProfilePage = () => {
     num_employees: '',
     departments: '',
     products:'',
+    industry:'',
     regions: '',
   });
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ const CompanyProfilePage = () => {
     if (!user) return;
     const fetchProfile = async () => {
       const { data, error } = await supabase
-        .from('company_profiles')
+        .from('companyProfiles')
         .select('*')
         .eq('user_id', user.id)
         .single();
@@ -51,7 +52,7 @@ const CompanyProfilePage = () => {
     setLoading(true);
 
     const { error } = await supabase
-      .from('company_profiles')
+      .from('companyProfiles')
       .upsert({ ...formData, user_id: user.id }, { onConflict: 'user_id' });
 
     if (error) console.error('Save error:', error);
@@ -76,6 +77,7 @@ const CompanyProfilePage = () => {
               <input className="input" name="num_employees" value={formData.num_employees} onChange={handleChange} placeholder="Number of Employees" />
               <input className="input" name="departments" value={formData.departments} onChange={handleChange} placeholder="Departments" />
               <input className="input" name="products" value={formData.products} onChange={handleChange} placeholder="Products" />
+              <input className="input" name="industry" value={formData.industry} onChange={handleChange} placeholder="Industry" />
               <input className="input" name="regions" value={formData.regions} onChange={handleChange} placeholder="Regions / Locations" />
             </div>
           </div>
