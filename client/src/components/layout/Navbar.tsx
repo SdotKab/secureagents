@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 // import Logo from '/logo.svg';
-import { useAuth } from 'src/context/AuthProvide';
+import { useAuth } from '@/context/AuthProvider';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -39,7 +39,10 @@ export default function Navbar() {
           ) : (
             <>
               <li>
-                <Link href="/account-settings">Settings</Link>
+                <Link href="/company-profile">Company Profile</Link>
+              </li>
+              <li>
+                <Link href="/account-settings">Account Settings</Link>
               </li>
               <li>
                 <button onClick={signOut} className="text-red-600 font-semibold">Logout</button>
