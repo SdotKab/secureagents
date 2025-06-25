@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthProvider';
 import { supabase } from '@/lib/supabase';
-import MainLayout from '@/components/Layout';
 
 const CompanyProfilePage = () => {
   const { user } = useAuth();
@@ -30,7 +29,7 @@ const CompanyProfilePage = () => {
     if (!user) return;
     const fetchProfile = async () => {
       const { data, error } = await supabase
-        .from('companyProfiles')
+        .from('company_profiles')
         .select('*')
         .eq('user_id', user.id)
         .single();
@@ -42,6 +41,7 @@ const CompanyProfilePage = () => {
     fetchProfile();
   }, [user]);
 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -52,7 +52,7 @@ const CompanyProfilePage = () => {
     setLoading(true);
 
     const { error } = await supabase
-      .from('companyProfiles')
+      .from('company_profiles')
       .upsert({ ...formData, user_id: user.id }, { onConflict: 'user_id' });
 
     if (error) console.error('Save error:', error);
@@ -62,7 +62,6 @@ const CompanyProfilePage = () => {
   };
 
   return (
-    <MainLayout>
       <div className="max-w-3xl mx-auto p-4">
         <h1 className="text-2xl font-bold mb-6">Company Profile</h1>
 
@@ -115,7 +114,6 @@ const CompanyProfilePage = () => {
           {loading ? 'Saving...' : 'Save Profile'}
         </button>
       </div>
-    </MainLayout>
   );
 };
 
