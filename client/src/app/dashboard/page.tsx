@@ -2,6 +2,7 @@
 
 import AssessmentDashboard from "@/components/dashboard/AssessmentDashboard";
 import AssessmentReportsSection from "@/components/dashboard/AssessmentReportSection";
+import AssetReviewSection from "@/components/dashboard/AssetReviewSection";
 import LiveFeedSection from "@/components/dashboard/LiveFeedSection";
 import QuestionnaireSection from "@/components/dashboard/QuestionnaireSection";
 import RecommendationsSection from "@/components/dashboard/RecommendationsSection";
@@ -16,6 +17,7 @@ export default function DashboardPage() {
         <h1 className="text-2xl font-bold text-gray-800">Welcome back to your security dashboard</h1>
 
         <AssessmentDashboard />
+        <AssetReviewSection />
         <SurveySection />
         <QuestionnaireSection />
         <LiveFeedSection />
