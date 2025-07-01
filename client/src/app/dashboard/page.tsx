@@ -1,5 +1,7 @@
 'use client';
 
+
+import AIAssistant from "@/components/dashboard/AIAssistant";
 import AssessmentDashboard from "@/components/dashboard/AssessmentDashboard";
 import AssessmentReportsSection from "@/components/dashboard/AssessmentReportSection";
 import AssetReviewSection from "@/components/dashboard/AssetReviewSection";
@@ -25,6 +27,7 @@ export default function DashboardPage() {
         <RecommendationsSection />
 
         {/* AI Assistant will go here later */}
+        <AIAssistant />
       </div>
     </DashboardLayout>
   );

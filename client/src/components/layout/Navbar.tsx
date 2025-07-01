@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <header className="bg-white shadow-md">
       <nav className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href={user ? '/dashboard' : '/welcome'} className="flex items-center space-x-2">
+        <Link href={user ? '/dashboard' : '/'} className="flex items-center space-x-2">
           <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
           <span className="text-xl font-bold text-blue-600">SecureAgents</span>
         </Link>
